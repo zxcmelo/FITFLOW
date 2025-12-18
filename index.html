@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFlow | Команда тренеров</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-50 font-['Manrope']">
+
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-black text-indigo-600 italic tracking-tighter">FITFLOW</div>
+            <div class="hidden md:flex space-x-8 font-bold text-slate-600">
+                <a href="#trainers" class="hover:text-indigo-600 transition">Тренеры</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-20 bg-slate-900 text-white overflow-hidden relative">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 uppercase italic">Твой результат — <span class="text-indigo-500">наша цель</span></h1>
+            <p class="text-slate-400 text-xl max-w-2xl mx-auto mb-10">Выбери наставника, который приведет тебя к мечте.</p>
+        </div>
+    </header>
+
+    <main id="trainers" class="container mx-auto px-6 py-20">
+        <div class="grid md:grid-cols-3 gap-10">
+            <div class="group bg-white rounded-[2rem] shadow-xl overflow-hidden border border-slate-100 transform transition hover:-translate-y-2">
+                <div class="h-[400px] overflow-hidden">
+                    <img src="https://images.mentoday.ru/upload/img_cache/7fa/7fa9f32f6c80a86913028c9cccc1f99b_ce_1380x920x0x0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-1 italic">Артем Соколов</h3>
+                    <p class="text-indigo-600 font-bold text-sm uppercase mb-6 tracking-widest">CrossFit / Powerlifting</p>
+                    <a href="trainer-sokolov.html" class="block text-center bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-indigo-600 transition">Смотреть профиль</a>
+                </div>
+            </div>
+
+            <div class="group bg-white rounded-[2rem] shadow-xl overflow-hidden border border-slate-100 transform transition hover:-translate-y-2">
+                <div class="h-[400px] overflow-hidden">
+                    <img src="https://ncrdo.ru/upload/medialibrary/c23/c234aed4ea0b68332470f3768ae516fe.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-1 italic">Мария Волкова</h3>
+                    <p class="text-indigo-600 font-bold text-sm uppercase mb-6 tracking-widest">Yoga / Pilates / Stretching</p>
+                    <a href="trainer-volkova.html" class="block text-center bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-indigo-600 transition">Смотреть профиль</a>
+                </div>
+            </div>
+
+            <div class="group bg-white rounded-[2rem] shadow-xl overflow-hidden border border-slate-100 transform transition hover:-translate-y-2">
+                <div class="h-[400px] overflow-hidden">
+                    <img src="https://img.freepik.com/free-photo/portrait-handsome-bearded-athlete-black-t-shirt-posing-dumbbell-studio-isolated-gray-background_613910-6608.jpg?semt=ais_hybrid&w=740&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-1 italic">Виктор Стальной</h3>
+                    <p class="text-indigo-600 font-bold text-sm uppercase mb-6 tracking-widest">Bodybuilding / Heavy Athletics</p>
+                    <a href="trainer-stalnoy.html" class="block text-center bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-indigo-600 transition">Смотреть профиль</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 py-10 text-slate-500 text-center">
+        <p>&copy; 2025 FitFlow Fitness.</p>
+    </footer>
+
+</body>
+</html>

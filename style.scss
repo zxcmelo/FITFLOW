@@ -1,0 +1,105 @@
+$primary: #4f46e5;
+
+// Плавная анимация модалки
+.modal-overlay {
+    transition: opacity 0.3s ease;
+    
+    &.active {
+        display: flex;
+        animation: fadeIn 0.3s forwards;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+// Эффект появления контента внутри модалки
+#bookingModal .bg-white {
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+// Красивое оформление календаря (браузеры Webkit)
+input[type="datetime-local"] {
+    &::-webkit-calendar-picker-indicator {
+        background-color: white;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        filter: invert(31%) sepia(94%) saturate(1209%) hue-rotate(225deg) brightness(95%) contrast(92%);
+    }
+}
+
+.trainer-card:hover img {
+    filter: grayscale(0.3) contrast(1.1);
+}
+/* Стили для календаря (input datetime-local) */
+input[type="datetime-local"] {
+    position: relative;
+    &::-webkit-calendar-picker-indicator {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        filter: invert(30%) sepia(90%) saturate(1500%) hue-rotate(220deg);
+    }
+}
+
+/* Анимация плавного появления модалки */
+#bookingModal {
+    transition: opacity 0.3s ease-in-out;
+    
+    & > div {
+        animation: scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+}
+
+@keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Ховер эффекты для карточек цен */
+.bg-white.p-8:hover {
+    transform: translateY(-5px);
+}
+#successModal {
+    &.active {
+        display: flex;
+        animation: fadeIn 0.3s ease-out;
+    }
+
+    & > div {
+        animation: bounceIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+}
+
+// Анимация "всплытия с подскоком"
+@keyframes bounceIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5) translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+// Анимация для галочки (пульсация)
+.text-green-600 svg {
+    animation: checkmarkShow 0.8s ease-in-out;
+}
+
+@keyframes checkmarkShow {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+}
