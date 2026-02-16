@@ -1,32 +1,33 @@
+// Переменные для модальных окон
 const bookingModal = document.getElementById('bookingModal');
 const successModal = document.getElementById('successModal');
 const form = document.getElementById('bookingForm');
 
-// Открытие модалки записи
+// ФУНКЦИИ ЗАПИСИ
 function openModal(trainerName) {
-    document.getElementById('trainerNameDisp').innerText = trainerName;
-    document.getElementById('trainerInput').value = trainerName;
+    if (document.getElementById('trainerNameDisp')) {
+        document.getElementById('trainerNameDisp').innerText = trainerName;
+        document.getElementById('trainerInput').value = trainerName;
+    }
     
     bookingModal.classList.remove('hidden');
-    bookingModal.classList.add('flex'); // Для Tailwind flex-центра
+    bookingModal.classList.add('flex'); 
     document.body.style.overflow = 'hidden';
 }
 
-// Закрытие модалки записи
 function closeModal() {
     bookingModal.classList.add('hidden');
     bookingModal.classList.remove('flex');
     document.body.style.overflow = 'auto';
 }
 
-// Закрытие окна успеха
 function closeSuccessModal() {
     successModal.classList.add('hidden');
     successModal.classList.remove('flex');
     document.body.style.overflow = 'auto';
 }
 
-// Обработка отправки
+// ОБРАБОТКА ФОРМЫ
 if (form) {
     form.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -34,16 +35,16 @@ if (form) {
         const name = document.getElementById('userName').value;
         const timeValue = document.getElementById('lessonTime').value;
         
-        // Превращаем дату в красивый вид
         const date = new Date(timeValue);
         const options = { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' };
         const formattedDate = date.toLocaleDateString('ru-RU', options);
 
-        // Прячем старое, показываем новое
         closeModal();
         
-        document.getElementById('resName').innerText = name;
-        document.getElementById('resTime').innerText = formattedDate;
+        if (document.getElementById('resName')) {
+            document.getElementById('resName').innerText = name;
+            document.getElementById('resTime').innerText = formattedDate;
+        }
         
         successModal.classList.remove('hidden');
         successModal.classList.add('flex');
@@ -52,8 +53,42 @@ if (form) {
     });
 }
 
-// Закрытие кликом по фону
-window.onclick = function(e) {
-    if (e.target == bookingModal) closeModal();
-    if (e.target == successModal) closeSuccessModal();
-}
+// --- НОВАЯ ЛОГИКА COOKIE ---
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('accept-cookies');
+    const closeBtn = document.getElementById('close-cookie-hint');
+
+    // Если баннера на текущей странице нет (например, страница тренера без него), выходим
+    if (!cookieBanner) return;
+
+    // Проверяем в памяти браузера, принимал ли пользователь куки раньше
+    const isAccepted = localStorage.getItem('fitflow_cookies_accepted');
+
+    if (!isAccepted) {
+        // Показываем баннер через 2 секунды после захода
+        setTimeout(() => {
+            cookieBanner.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            cookieBanner.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+        }, 2000);
+    }
+
+    // При нажатии "Принять" — запоминаем и прячем
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('fitflow_cookies_accepted', 'true');
+            hideBanner();
+        });
+    }
+
+    // При нажатии "Позже" — просто прячем
+    if (closeBtn) {
+        closeBtn.addEventListener('click', hideBanner);
+    }
+
+    function hideBanner() {
+        cookieBanner.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+        cookieBanner.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+    }
+});
