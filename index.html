@@ -7,7 +7,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
-</head>
+
+    <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(99999999, "init", { // Замените 99999999 на ваш номер счетчика
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/99999999" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    </head>
 <body class="bg-slate-50 font-['Manrope']">
 
     <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
@@ -67,5 +83,30 @@
         <p>&copy; 2025 FitFlow Fitness.</p>
     </footer>
 
+    <div id="cookie-banner" class="fixed bottom-6 left-6 right-6 md:left-auto md:right-10 md:max-w-md bg-white/90 backdrop-blur-2xl border border-white shadow-2xl p-8 rounded-[2.5rem] z-[200] transform translate-y-20 opacity-0 transition-all duration-700 pointer-events-none">
+        <div class="flex items-start gap-5">
+            <div class="bg-indigo-600 text-white p-4 rounded-2xl">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+            </div>
+            <div>
+                <h4 class="font-black text-slate-900 uppercase text-xs tracking-widest mb-2">Конфиденциальность</h4>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                    Мы собираем данные через <strong>Яндекс Метрику</strong>, чтобы улучшать сервис. Оставаясь на сайте, вы соглашаетесь с этим.
+                </p>
+                <div class="flex items-center gap-6">
+                    <button id="accept-cookies" class="bg-slate-900 text-white px-8 py-3 rounded-xl text-xs font-black uppercase hover:bg-indigo-600 transition active:scale-95 shadow-lg">
+                        Принять
+                    </button>
+                    <button id="close-cookie-hint" class="text-slate-400 text-xs font-bold hover:text-slate-900 transition border-b border-transparent hover:border-slate-900">
+                        Позже
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
